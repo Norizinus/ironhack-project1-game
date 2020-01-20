@@ -4,41 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Take a guess!</title>
     <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/p5"></script>
   </head>
-  <body>
+  <body id="body">
     <div class="header">
       <h1>Right or wrong.... take a guess!</h1>
     </div>
     <div class="statistics">
       Here are the statiscits!
-      <div class="countdown">
-        I am a countdown
+      <div id="countdown">
+        10
       </div>
-      <div class="score">
+      <div id="score">
         <p>Current score <span id="currentScore">0</span></p>
       </div>
+      <div id="lives">
+        <span>&hearts;</span><span>&hearts;</span><span>&hearts;</span>
+      </div>
     </div>
-    <div class="game">
+    <div class="game invisible" id="jump-run-game"></div>
+    <div class="game" id="trivia-game">
       <div class="canvas">
-        <div class="statement">
-          I am a statement
+        <div id="statement">
+          <p>I am a statement</p>
         </div>
         <div class="answers">
-          <button class="true">
+          <button class="positiveBtn" id="true">
             True
           </button>
-          <button class="false">
+          <button class="negativeBtn" id="false">
             Fales
           </button>
         </div>
       </div>
     </div>
-    <div class="lives">
-      <span>&hearts;</span><span>&hearts;</span><span>&hearts;</span>
+    <div id="jump-run-starter" class="game-status invisible">
+      <p>Do you want to run for your life?</p>
+      <button class="positiveBtn" id="yes">Yes</button>
+      <button class="negativeBtn" id="no">No</button>
     </div>
-    <script src="questions.js"></script>
-    <script src="script.js"></script>
+
+    <script src="js/questions.js"></script>
+    <script src="js/triviaGame.js"></script>
+    <script src="js/runGame.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

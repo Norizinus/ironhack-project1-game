@@ -9,3 +9,29 @@
 .game {
   border: 1px solid black;
 }
+
+#jump-run-game {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#trivia-game {
+  position: relative;
+}
+
+.active {
+  z-index: 10;
+  visibility: visible;
+}
+
+.invisible {
+  z-index: -10;
+  visibility: hidden;
+}
+
+#jump-run-starter {
+  border: 1px solid black;
+}
