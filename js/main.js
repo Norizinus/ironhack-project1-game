@@ -8,6 +8,7 @@ let score = document.getElementById("currentScore");
 let countdown = document.getElementById("countdown");
 let lives = document.getElementById("lives");
 let jumpRunGame = null;
+let myP5 = null;
 
 //loads the initial game when page loads
 function loadTriviaGame() {
@@ -18,7 +19,11 @@ function loadTriviaGame() {
 
 //updates the live on the page based on the current lives left in the game
 function printLives() {
-  lives.innerText = triviaGame.lives;
+  lives.removeChild(lives.lastElementChild);
+  if (lives.childElementCount === 0) {
+    lives.innerText =
+      "You are almost dead..... Are you brave enough to escape death?";
+  }
 }
 
 //checks if the answer given to a statement is correct
@@ -46,6 +51,7 @@ function canPlayerContinue() {
     endQuiz();
   } else if (triviaGame.lives === 0) {
     document.getElementById("jump-run-starter").classList.remove("invisible");
+    document.getElementById("trivia-game").classList.add("invisible");
   } else {
     triviaGame.nextRound();
     printQuestion();
@@ -91,9 +97,12 @@ function runForYourLifeEvaluation(event) {
     console.log("Let's get running!");
     if (jumpRunGame === null) {
       jumpRunGame = new runGame();
+
       console.log("New Game created");
     }
-    jumpRunGame.initCanvas(document.getElementById("jump-run-game"));
+
+    myP5 = new p5(myCanvas, document.getElementById("jump-run-game"));
+    console.log("this is my p5:", myP5);
     document.getElementById("jump-run-game").classList.remove("invisible");
     document.getElementById("trivia-game").classList.add("invisible");
     document.getElementById("jump-run-starter").classList.add("invisible");
@@ -105,7 +114,10 @@ function runForYourLifeEvaluation(event) {
 
 //ends the jump and run game and removes the canvas
 function endJumpRun() {
-  jumpRunGame.removeCanvas();
+  myP5.removeCanvas();
+
+  // check if the player survived the game, incease level of the game for the next round jumpRunGame.level++
+
   document.getElementById("trivia-game").classList.remove("invisible");
   document.getElementById("jump-run-starter").classList.add("invisible");
 }
@@ -139,41 +151,3 @@ noButton.onclick = runForYourLifeEvaluation;
 // If the player accepts, a canvas is drawn with a game.
 // If the player wins, the next questions will be displayed and he continues playing
 // It the player looses, he will loose all points. GAME OVER!
-
-// jumpRunGame.myP5.draw()
-
-// console.log(document.getElementById("canvas").style.height);
-
-// let myCanvas = drawCanvas;
-
-// function drawCanvas(blueprint) {
-//   let colornora = blueprint.color(174, 222, 203);
-//   let backgroundImg1 = blueprint.loadImage("../assets/background/sky.png");
-//   let backgroundImg2 = blueprint.loadImage("../assets/game_background_1.png");
-//   // let backgroundImg3 = blueprint.loadImage("../assets/game_background_1.png");
-//   // let backgroundImg4 = blueprint.loadImage("../assets/game_background_1.png");
-//   // let backgroundImg5 = blueprint.loadImage("../assets/game_background_1.png");
-
-//   blueprint.setup = function() {
-//     blueprint.createCanvas(
-//       blueprint.windowWidth / 2,
-//       blueprint.windowHeight / 2
-//     );
-//     blueprint.background(colornora);
-//   };
-
-//   blueprint.draw = function() {
-//     // drawBackground(blueprint);
-//     blueprint.image(backgroundImg1, 0, 0);
-//     blueprint.image(backgroundImg2, 0, 0);
-//     // blueprint.image(backgroundImg2, 0 + width, 0);
-//     blueprint.rect(50, 50, 50, 50);
-//     drawPlayer(blueprint);
-//   };
-// }
-
-// let myp5 = new p5(myCanvas);
-
-// function drawPlayer(p5) {
-//   p5.rect(100, 100, 100, 100);
-// }

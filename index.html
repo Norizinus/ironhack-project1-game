@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Take a guess!</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/p5"></script>
@@ -14,15 +18,14 @@
       <h1>Right or wrong.... take a guess!</h1>
     </div>
     <div class="statistics">
-      Here are the statiscits!
-      <div id="countdown">
-        10
-      </div>
       <div id="score">
         <p>Current score <span id="currentScore">0</span></p>
       </div>
       <div id="lives">
         <span>&hearts;</span><span>&hearts;</span><span>&hearts;</span>
+      </div>
+      <div id="countdown">
+        10
       </div>
     </div>
     <div class="game invisible" id="jump-run-game"></div>
@@ -41,15 +44,21 @@
         </div>
       </div>
     </div>
-    <div id="jump-run-starter" class="game-status invisible">
+    <div id="jump-run-starter" class="game game-status invisible">
       <p>Do you want to run for your life?</p>
       <button class="positiveBtn" id="yes">Yes</button>
       <button class="negativeBtn" id="no">No</button>
     </div>
 
-    <script src="js/questions.js"></script>
-    <script src="js/triviaGame.js"></script>
-    <script src="js/runGame.js"></script>
+    <script src="js/triviaGame/questions.js"></script>
+    <script src="js/triviaGame/triviaGame.js"></script>
+
+    <script src="js/jumpingGame/p5Handler.js"></script>
+    <script src="js/jumpingGame/background.js"></script>
+    <script src="js/jumpingGame/player.js"></script>
+    <script src="js/jumpingGame/obstacle.js"></script>
+    <script src="js/jumpingGame/runGame.js"></script>
+
     <script src="js/main.js"></script>
   </body>
 </html>

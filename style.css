@@ -1,17 +1,40 @@
 body {
   background-image: url("/assets/background/sky.png");
+  font-size: 20px;
+  font-family: "Bangers", cursive;
 }
 
 .header {
+  text-align: center;
   /* border: 1px solid black; */
 }
 
 .statistics {
   /* border: 1px solid black; */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .game {
   /* border: 1px solid black; */
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: 3em;
+}
+
+.canvas {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.answers > button {
+  margin: 2em;
 }
 
 #jump-run-game {
@@ -22,20 +45,37 @@ body {
   position: relative;
 }
 
-#trivia-game {
-  position: relative;
-}
-
 .active {
   z-index: 10;
   visibility: visible;
 }
 
 .invisible {
-  z-index: -10;
-  visibility: hidden;
+  /* z-index: -10; */
+  /* visibility: hidden; */
+  display: none !important;
 }
 
 #jump-run-starter {
   /* border: 1px solid black; */
+}
+
+#statement {
+  /* font-size: 2em; */
+}
+
+button {
+  font-size: 1em;
+  font-family: "Bangers", cursive;
+  border-radius: 0.5em;
+  background-color: white;
+  text-align: center;
+  padding: 1em 1.5em;
+}
+
+#jump-run-starter {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
