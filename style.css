@@ -1,13 +1,17 @@
+body {
+  background-image: url("/assets/background/sky.png");
+}
+
 .header {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .statistics {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .game {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 #jump-run-game {
@@ -33,5 +37,5 @@
 }
 
 #jump-run-starter {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }

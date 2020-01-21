@@ -91,6 +91,7 @@ function runForYourLifeEvaluation(event) {
     console.log("Let's get running!");
     if (jumpRunGame === null) {
       jumpRunGame = new runGame();
+      console.log("New Game created");
     }
     jumpRunGame.initCanvas(document.getElementById("jump-run-game"));
     document.getElementById("jump-run-game").classList.remove("invisible");
@@ -147,16 +148,32 @@ noButton.onclick = runForYourLifeEvaluation;
 
 // function drawCanvas(blueprint) {
 //   let colornora = blueprint.color(174, 222, 203);
-//   blueprint.setup = function() {
-//     blueprint.createCanvas(2000, 2000);
+//   let backgroundImg1 = blueprint.loadImage("../assets/background/sky.png");
+//   let backgroundImg2 = blueprint.loadImage("../assets/game_background_1.png");
+//   // let backgroundImg3 = blueprint.loadImage("../assets/game_background_1.png");
+//   // let backgroundImg4 = blueprint.loadImage("../assets/game_background_1.png");
+//   // let backgroundImg5 = blueprint.loadImage("../assets/game_background_1.png");
 
+//   blueprint.setup = function() {
+//     blueprint.createCanvas(
+//       blueprint.windowWidth / 2,
+//       blueprint.windowHeight / 2
+//     );
 //     blueprint.background(colornora);
 //   };
 
 //   blueprint.draw = function() {
-
+//     // drawBackground(blueprint);
+//     blueprint.image(backgroundImg1, 0, 0);
+//     blueprint.image(backgroundImg2, 0, 0);
+//     // blueprint.image(backgroundImg2, 0 + width, 0);
 //     blueprint.rect(50, 50, 50, 50);
+//     drawPlayer(blueprint);
 //   };
 // }
 
 // let myp5 = new p5(myCanvas);
+
+// function drawPlayer(p5) {
+//   p5.rect(100, 100, 100, 100);
+// }
