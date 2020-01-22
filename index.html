@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Take a guess!</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Bangers&display=swap"
+      href="https://fonts.googleapis.com/css?family=Orbitron&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -18,14 +18,25 @@
       <h1>Right or wrong.... take a guess!</h1>
     </div>
     <div class="statistics">
-      <div id="score">
-        <p>Current score <span id="currentScore">0</span></p>
+      <div class="statistic-item" id="score">
+        <div>
+          <p>Current score</p>
+          <p id="currentScore">0</p>
+        </div>
       </div>
-      <div id="lives">
-        <span>&hearts;</span><span>&hearts;</span><span>&hearts;</span>
+      <div class="statistic-item">
+        <div>
+          <p id="life-header">Lifes</p>
+          <p id="lives">
+            <span>&hearts;</span><span>&hearts;</span><span>&hearts;</span>
+          </p>
+        </div>
       </div>
-      <div id="countdown">
-        10
+      <div class="statistic-item">
+        <div>
+          <p>Time left to answer</p>
+          <p id="countdown">20</p>
+        </div>
       </div>
     </div>
     <div class="game invisible" id="jump-run-game"></div>
@@ -46,8 +57,10 @@
     </div>
     <div id="jump-run-starter" class="game game-status invisible">
       <p>Do you want to run for your life?</p>
-      <button class="positiveBtn" id="yes">Yes</button>
-      <button class="negativeBtn" id="no">No</button>
+      <div class="answers">
+        <button class="positiveBtn" id="yes">Yes</button>
+        <button class="negativeBtn" id="no">No</button>
+      </div>
     </div>
 
     <script src="js/triviaGame/questions.js"></script>

@@ -3,7 +3,7 @@
 class Trivia {
   constructor() {
     this.players = 1;
-    this.rounds = 5;
+    this.rounds = 10;
     this.currentRound = 1;
     this.lives = 3;
     this.score = 0;
@@ -16,7 +16,7 @@ class Trivia {
 
   //sets the time the player has to answer a question
   setTimer() {
-    let counter = 9;
+    let counter = 19;
     this.interval = setInterval(
       function() {
         printCountdown(counter);
@@ -43,6 +43,12 @@ class Trivia {
   //decreases the lives for the current game
   decreaseLives() {
     this.lives--;
+  }
+
+  resetLives() {
+    this.lives = 1;
+    resetPrintedLives();
+    console.log("done");
   }
 
   //resets the game so it can be replayed

@@ -9,21 +9,36 @@ let countdown = document.getElementById("countdown");
 let lives = document.getElementById("lives");
 let jumpRunGame = null;
 let myP5 = null;
+let timeToAnswer = 20;
+let lifeHeader = document.getElementById("life-header");
 
 //loads the initial game when page loads
 function loadTriviaGame() {
   console.log("Page loaded");
   triviaGame.init();
+  resetCountdown(timeToAnswer);
   printQuestion();
 }
 
 //updates the live on the page based on the current lives left in the game
 function printLives() {
+  console.log(lives.lastElementChild);
   lives.removeChild(lives.lastElementChild);
   if (lives.childElementCount === 0) {
-    lives.innerText =
-      "You are almost dead..... Are you brave enough to escape death?";
+    lifeHeader.innerText = "Hanging on to dear life...";
   }
+}
+
+function resetPrintedLives() {
+  console.log("resetPrintesLives called");
+  lifeHeader.innerText = "Lifes";
+  for (let i = 0; i < triviaGame.lives; i++) {
+    let newLife = document.createElement("span");
+    newLife.innerText = "♥";
+    lives.appendChild(newLife);
+  }
+  // lives.innerText = "";
+  // console.log(lives.innerHTML);
 }
 
 //checks if the answer given to a statement is correct
@@ -77,7 +92,7 @@ function printCountdown(value) {
 
 //reset the countdown to the original value (1)
 function resetCountdown() {
-  countdown.innerText = 10;
+  countdown.innerText = timeToAnswer;
 }
 
 //prints a new question out of the selected questions for a game and starts the countdown
@@ -100,7 +115,7 @@ function runForYourLifeEvaluation(event) {
 
       console.log("New Game created");
     }
-
+    console.log("Called canvas");
     myP5 = new p5(myCanvas, document.getElementById("jump-run-game"));
     console.log("this is my p5:", myP5);
     document.getElementById("jump-run-game").classList.remove("invisible");
@@ -113,13 +128,20 @@ function runForYourLifeEvaluation(event) {
 }
 
 //ends the jump and run game and removes the canvas
-function endJumpRun() {
-  myP5.removeCanvas();
+function endJumpRun(result) {
+  myP5.remove();
+  document.getElementById("jump-run-game").classList.add("invisible");
+  if (result) {
+    console.log("The game continues");
+    document.getElementById("trivia-game").classList.remove("invisible");
+    triviaGame.nextRound();
+    triviaGame.resetLives();
+    printQuestion();
+  } else {
+    //show game stats!
+  }
 
   // check if the player survived the game, incease level of the game for the next round jumpRunGame.level++
-
-  document.getElementById("trivia-game").classList.remove("invisible");
-  document.getElementById("jump-run-starter").classList.add("invisible");
 }
 
 //ends the current game

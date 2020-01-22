@@ -1,24 +1,46 @@
 body {
   background-image: url("/assets/background/sky.png");
   font-size: 20px;
-  font-family: "Bangers", cursive;
+  font-family: "Orbitron", sans-serif;
 }
 
 .header {
   text-align: center;
-  /* border: 1px solid black; */
+  border: 1px solid black;
 }
 
 .statistics {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3em;
+  font-size: 1.1em;
+}
+
+.statistic-item {
+  width: 20%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.statistic-item > div {
+  display: flex;
+  flex-flow: column nowrap;
   align-items: center;
 }
 
+#lives {
+  width: 30%;
+  text-align: center;
+}
+
 .game {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   position: relative;
   display: flex;
   flex-flow: row nowrap;
@@ -57,7 +79,7 @@ body {
 }
 
 #jump-run-starter {
-  /* border: 1px solid black; */
+  border: 1px solid black;
 }
 
 #statement {
