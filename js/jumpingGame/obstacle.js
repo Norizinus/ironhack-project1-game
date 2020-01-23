@@ -9,6 +9,7 @@ class Obstacle {
       p5.loadImage("././assets/obstacle/character_zombie_run2.png")
     ];
 
+    this.sound = p5.loadSound("../../assets/sounds/obstacle.wav");
     this.canvasHeight = canvasHeight;
     this.canvasWidth = canvasWidth;
 
@@ -52,6 +53,7 @@ class Obstacle {
       return false;
     }
 
+    this.sound.play();
     //if the conditions above are not true, the items collide
     return true;
   }

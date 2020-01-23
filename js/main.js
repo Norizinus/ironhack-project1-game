@@ -145,9 +145,9 @@ function runForYourLifeEvaluation(event) {
 
 //ends the jump and run game and removes the canvas
 function endJumpRun(result) {
-  myP5.remove();
   jumpRunStarter.classList.add("invisible");
   if (result) {
+    myP5.remove();
     console.log("The adventure continues");
     jumpgamePlaying.classList.add("invisible");
     gamePlaying.classList.remove("invisible");
@@ -158,6 +158,9 @@ function endJumpRun(result) {
     triviaGame.resetLives();
     printQuestion();
   } else {
+    setTimeout(function() {
+      myP5.remove();
+    }, 6000);
     endQuiz(false);
   }
 
@@ -175,7 +178,7 @@ function endQuiz(won) {
     gameEnd.classList.remove("invisible");
     gameOver.classList.remove("invisible");
 
-    console.log("Meh ¯\_(ツ)_/¯");
+    console.log("Meh ¯_(ツ)_/¯");
   } else {
     if (jumpRunGame != null) {
       deathEscapes.innerText = jumpRunGame.level - 1;
@@ -208,7 +211,9 @@ trueButton.onclick = checkAnswer;
 falseButton.onclick = checkAnswer;
 yesButton.onclick = runForYourLifeEvaluation;
 noButton.onclick = runForYourLifeEvaluation;
-restartButton.onclick = loadTriviaGame;
+restartButton.onclick = function() {
+  location.reload();
+};
 
 // Questions needs to be displayed and the counter starts the countdown.
 // On click of the True/False Buttons the answer needs to be evaluated

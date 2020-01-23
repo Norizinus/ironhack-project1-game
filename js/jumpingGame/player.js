@@ -5,8 +5,8 @@ class Player {
   }
 
   setup(p5, canvasHeight, canvasWidth) {
+    this.sound = p5.loadSound("././assets/sounds/player.ogg");
     this.image = p5.loadImage("././assets/player/llama.gif");
-    console.log(this.image.height);
 
     this.canvasHeight = canvasHeight;
     this.canvasWidth = canvasWidth;
@@ -50,6 +50,7 @@ class Player {
 
   jump() {
     //increase the velocity so that the player slowly starts falling
+    this.sound.play();
     this.velocity = -6;
   }
 

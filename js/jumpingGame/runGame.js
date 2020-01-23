@@ -32,7 +32,9 @@ class runGame {
       p5.textSize(30);
 
       p5.text(this.gameTimer, this.width - 50, 30);
-      this.player.draw(p5);
+      if (this.player != null) {
+        this.player.draw(p5);
+      }
       if (p5.frameCount % 60 === 0) {
         this.gameTimer--;
       }
