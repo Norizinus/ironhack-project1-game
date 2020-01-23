@@ -29,7 +29,7 @@ class Background {
       {
         src: p5.loadImage("../../assets/background/clouds_3.png"),
         xPosition: 0,
-        speed: 2 * jumpRunGame.level
+        speed: 2.8 * jumpRunGame.level
       },
       {
         src: p5.loadImage("../../assets/background/clouds_4.png"),

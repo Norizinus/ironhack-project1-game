@@ -12,22 +12,25 @@ class Obstacle {
     this.canvasHeight = canvasHeight;
     this.canvasWidth = canvasWidth;
 
-    this.height = 100;
-    this.width = 100;
-    this.x = this.canvasWidth - this.width;
+    this.height = this.canvasHeight * jumpRunGame.playerSize;
+    this.width = this.canvasHeight * jumpRunGame.playerSize;
+    this.x = this.canvasWidth;
     this.y = p5.random(0, this.canvasHeight - this.height - 20);
   }
 
   draw(p5) {
     console.log("Draw Obstacle was called");
 
+    //moves through the images of the obstacle so that it appears moving
     if (p5.frameCount % 8 === 0) {
       this.counter = this.counter + 1;
       if (this.counter > this.images.length - 1) {
         this.counter = 0;
       }
     }
-    p5.rect(this.x, this.y, this.height, this.width);
+
+    //draws the image of the obstacle. based on the previous if statement, the value of the counter changes and the image printed changes)
+    // p5.rect(this.x, this.y, this.height, this.width);
 
     p5.image(
       this.images[this.counter],
@@ -36,21 +39,20 @@ class Obstacle {
       this.height,
       this.width
     );
-    this.x -= 1 * jumpRunGame.level;
-
-    // p5.rect(30, 30, 30, 30);
+    this.x -= 3 * jumpRunGame.level;
   }
 
   collision(player) {
-    console.log("Collision Check called");
+    //conditions for the two items not colliding;
+
     if (player.y + player.height < this.y || this.y + this.height < player.y) {
       return false;
     }
-
     if (player.x + player.width < this.x || this.x + this.width < player.x) {
       return false;
     }
 
+    //if the conditions above are not true, the items collide
     return true;
   }
 }

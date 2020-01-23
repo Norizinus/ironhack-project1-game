@@ -11,8 +11,8 @@ class Player {
     this.canvasHeight = canvasHeight;
     this.canvasWidth = canvasWidth;
 
-    this.height = 100;
-    this.width = 100;
+    this.height = this.canvasHeight * jumpRunGame.playerSize;
+    this.width = this.canvasHeight * jumpRunGame.playerSize;
 
     this.x = 20;
     this.y = this.canvasHeight - this.height - 20;
@@ -21,29 +21,43 @@ class Player {
   }
 
   draw(p5) {
+    // will set the falling speed of the character after it has jumped
     this.velocity += this.gravity;
     this.y += this.velocity;
 
+    //prevents the character from falling out of the picture (due to the gravity settings above)
     if (this.y >= this.originY) {
       this.y = this.originY;
     }
 
+    //prevents the character from leaving the top of the screen.
     if (this.y < 0) {
       this.y = 0;
     }
-    p5.rect(this.x, this.y, this.height, this.width);
+
+    //prevents the character from leaving the screen left or right.
+    if (this.x < 0) {
+      this.x = 0;
+    } else if (this.x > this.canvasWidth - this.width) {
+      this.x = this.canvasWidth - this.width;
+    }
+
+    //draws the character;
+
+    // p5.rect(this.x, this.y, this.height, this.width);
     p5.image(this.image, this.x, this.y, this.height, this.width);
   }
 
   jump() {
+    //increase the velocity so that the player slowly starts falling
     this.velocity = -6;
   }
 
   moveLeft() {
-    this.x += 1;
+    this.x += 2;
   }
 
   moveRight() {
-    this.x -= 1;
+    this.x -= 2;
   }
 }

@@ -2,8 +2,8 @@ let myCanvas = drawCanvas;
 
 function drawCanvas(p5Canvas) {
   //setup of the canvas
-  let canvasHeight = p5Canvas.windowHeight / 2;
-  let canvasWidth = p5Canvas.windowWidth / 1.5;
+  let canvasHeight = p5Canvas.windowHeight * 0.7;
+  let canvasWidth = p5Canvas.windowWidth * 0.7;
 
   p5Canvas.setup = function() {
     p5Canvas.createCanvas(canvasWidth, canvasHeight);
