@@ -5,7 +5,7 @@ class Player {
   }
 
   setup(p5, canvasHeight, canvasWidth) {
-    this.image = p5.loadImage("../../assets/player/llama.gif");
+    this.image = p5.loadImage("././assets/player/llama.gif");
     console.log(this.image.height);
 
     this.canvasHeight = canvasHeight;

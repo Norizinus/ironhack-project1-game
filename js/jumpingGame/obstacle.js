@@ -4,9 +4,9 @@ class Obstacle {
   }
   setup(p5, canvasHeight, canvasWidth) {
     this.images = [
-      p5.loadImage("../../assets/obstacle/character_zombie_run0.png"),
-      p5.loadImage("../../assets/obstacle/character_zombie_run1.png"),
-      p5.loadImage("../../assets/obstacle/character_zombie_run2.png")
+      p5.loadImage("././assets/obstacle/character_zombie_run0.png"),
+      p5.loadImage("././assets/obstacle/character_zombie_run1.png"),
+      p5.loadImage("././assets/obstacle/character_zombie_run2.png")
     ];
 
     this.canvasHeight = canvasHeight;

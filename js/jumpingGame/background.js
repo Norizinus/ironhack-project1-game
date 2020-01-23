@@ -2,37 +2,37 @@ class Background {
   setup(p5, canvasHeight, canvasWidth) {
     this.images = [
       {
-        src: p5.loadImage("../../assets/background/sky.png"),
+        src: p5.loadImage("././assets/background/sky.png"),
         xPosition: 0,
         speed: 0 * jumpRunGame.level
       },
       {
-        src: p5.loadImage("../../assets/background/clouds_1.png"),
+        src: p5.loadImage("././assets/background/clouds_1.png"),
         xPosition: 0,
         speed: 1 * jumpRunGame.level
       },
       {
-        src: p5.loadImage("../../assets/background/clouds_2.png"),
+        src: p5.loadImage("././assets/background/clouds_2.png"),
         xPosition: 0,
         speed: 1.5 * jumpRunGame.level
       },
       {
-        src: p5.loadImage("../../assets/background/rocks_1.png"),
+        src: p5.loadImage("././assets/background/rocks_1.png"),
         xPosition: 0,
         speed: 2 * jumpRunGame.level
       },
       {
-        src: p5.loadImage("../../assets/background/rocks_2.png"),
+        src: p5.loadImage("././assets/background/rocks_2.png"),
         xPosition: 0,
         speed: 3 * jumpRunGame.level
       },
       {
-        src: p5.loadImage("../../assets/background/clouds_3.png"),
+        src: p5.loadImage("././assets/background/clouds_3.png"),
         xPosition: 0,
         speed: 2.8 * jumpRunGame.level
       },
       {
-        src: p5.loadImage("../../assets/background/clouds_4.png"),
+        src: p5.loadImage("././assets/background/clouds_4.png"),
         xPosition: 0,
         speed: 2.5 * jumpRunGame.level
       }

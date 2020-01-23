@@ -18,7 +18,7 @@ class runGame {
     for (let obstacle of this.obstacle) {
       obstacle.setup(p5, canvasHeight, canvasWidth);
     }
-    this.font = p5.loadFont("/assets/Orbitron-Regular.ttf");
+    this.font = p5.loadFont("assets/Orbitron-Regular.ttf");
     console.log("obstacle setup");
   }
 
