@@ -7,7 +7,7 @@ class Trivia {
     this.currentRound = 1;
     this.lives = 3;
     this.score = 0;
-    this.pointsForCorrectAnswer = 10
+    this.pointsForCorrectAnswer = 10;
   }
 
   //upon initializaion, questions will be selected by the amount of rounds and the amount of players. Currently this will be set with a fixed value, but could be dynamic by user input in the future.

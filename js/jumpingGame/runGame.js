@@ -5,7 +5,7 @@ class runGame {
     this.player = new Player();
     console.log("obstacle creation");
     this.obstacle = [new Obstacle()];
-    this.gameTimer = 5;
+    this.gameTimer = 15;
     this.resetTimer = 5;
     this.playerSize = 0.15;
   }
@@ -91,7 +91,7 @@ class runGame {
   }
 
   prepareNextRound() {
-    this.gameTimer = 5;
+    this.gameTimer = 15;
     this.resetTimer = 5;
     this.player = new Player();
     this.obstacle = [new Obstacle()];
