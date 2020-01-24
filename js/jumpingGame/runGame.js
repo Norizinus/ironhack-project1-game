@@ -5,7 +5,7 @@ class runGame {
     this.player = new Player();
     console.log("obstacle creation");
     this.obstacle = [new Obstacle()];
-    this.gameTimer = 15;
+    this.gameTimer = 5;
     this.resetTimer = 5;
     this.playerSize = 0.15;
   }
@@ -38,7 +38,11 @@ class runGame {
       if (p5.frameCount % 60 === 0) {
         this.gameTimer--;
       }
-      if (p5.frameCount % (100 - jumpRunGame.level * 10) === 0) {
+      if (
+        p5.frameCount %
+          (30 + Math.floor(Math.pow(100, 1 - jumpRunGame.level * 0.1))) ===
+        0
+      ) {
         this.obstacle.push(new Obstacle());
         this.obstacle[this.obstacle.length - 1].setup(
           p5,
@@ -87,7 +91,7 @@ class runGame {
   }
 
   prepareNextRound() {
-    this.gameTimer = 15;
+    this.gameTimer = 5;
     this.resetTimer = 5;
     this.player = new Player();
     this.obstacle = [new Obstacle()];

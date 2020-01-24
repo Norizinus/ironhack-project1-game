@@ -36,6 +36,18 @@ let finalScore = document.getElementById("final-score");
 let potentialPoints = document.getElementById("potential-points");
 let deathEscapes = document.getElementById("death-escapes");
 
+//review for getting rid of global vars
+
+// function returnEle (keyEle){
+//   let object = {
+//     jump: document.getElementById("game-end");
+//   }
+
+//   return object[keyEle]
+// }
+
+// let jumpDiv = returnEle(jump)
+
 //loads the initial game when page loads
 function loadTriviaGame() {
   gameEnd.classList.add("invisible");
@@ -137,11 +149,16 @@ function runForYourLifeEvaluation(event) {
     //player has decided for the game, if this is the first time he plays, a new instance of the class runGame will be created
     console.log("Let's get running!");
     if (jumpRunGame === null) {
+      console.log("creating Game");
       jumpRunGame = new runGame();
     }
 
     document.body.classList.add("jump-run-background");
+
+    console.log("creating p5", null);
     myP5 = new p5(myCanvas, jumpgamePlaying);
+    console.log("creating p5");
+
     jumpgamePlaying.classList.remove("invisible");
     gamePlaying.classList.add("invisible");
     jumpRunStarter.classList.add("invisible");
@@ -158,10 +175,14 @@ function endJumpRun(result) {
 
   if (result === true) {
     console.log("The adventure continues");
-    console.log("removing p5");
+    console.log("removing p5", myP5);
+    console.log("song add", soundtrack);
     console.log(myP5);
     // console.log(myP5.remove());
     myP5.remove();
+    soundtrack.stop();
+    console.log("removing p5 after", myP5);
+    console.log("song remove", soundtrack);
     toDo.innerText = "wants to know";
     jumpgamePlaying.classList.add("invisible");
     gamePlaying.classList.remove("invisible");
@@ -172,6 +193,7 @@ function endJumpRun(result) {
     triviaGame.resetLives();
     printQuestion();
   } else {
+    console.log("Else statement remove p5");
     setTimeout(function() {
       myP5.remove();
     }, 6000);
