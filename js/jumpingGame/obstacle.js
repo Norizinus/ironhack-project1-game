@@ -9,7 +9,7 @@ class Obstacle {
       p5.loadImage("././assets/obstacle/character_zombie_run2.png")
     ];
 
-    this.sound = p5.loadSound("../../assets/sounds/obstacle.wav");
+    this.sound = p5.loadSound("././assets/sounds/obstacle.wav");
     this.canvasHeight = canvasHeight;
     this.canvasWidth = canvasWidth;
 
