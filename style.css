@@ -24,6 +24,49 @@ body {
   background-image: url("assets/background/sky.png");
 }
 
+#player-buttons {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-content: stretch;
+  /* margin-bottom: 2em; */
+  width: 40%;
+}
+
+.button-clicked {
+  background-color: teal;
+  color: white;
+}
+
+#obstacle-buttons {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  width: 40%;
+}
+
+#character-selection {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  height: 80vh;
+  /* width: 100vw; */
+  /* padding: 0.5em; */
+  padding-bottom: 2.35em;
+}
+
+#continue {
+  margin: 2em;
+}
+
+#all-character-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  margin-top: 2em;
+  /* align-items: center; */
+}
+
 #game-header {
   margin-bottom: 1em;
 }
@@ -83,13 +126,14 @@ body {
   flex-flow: column nowrap;
   justify-content: space-evenly;
   align-items: center;
-  width: 10%;
+  width: 15%;
   padding: 0 1em;
   font-size: 1.1em;
 }
 
 .statistic-item {
   width: 100%;
+  height: 50%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -109,6 +153,10 @@ body {
   flex-flow: column nowrap;
   justify-content: center;
   margin: 1em;
+}
+
+#start {
+  margin-top: 1em;
 }
 
 #statement {

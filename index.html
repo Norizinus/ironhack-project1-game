@@ -17,24 +17,43 @@
   <body id="body">
     <!-- This is the game header, it will always show-->
     <div class="page-content">
-      <div class="game-element" id="game-header">
-        <h1><span id="who">Nora</span> wants to know</h1>
+      <div class="game-element game-body" id="character-selection">
+        <h1>Nora wants to know</h1>
+        <div id="all-character-buttons">
+          <div id="player-buttons">
+            <p>Who do you like best?</p>
+            <button class="button-clicked " id="llama">Llamas</button>
+            <button id="dog">Dogs</button>
+            <button id="unicorn">Unicorns</button>
+          </div>
+          <div id="obstacle-buttons">
+            <p>Who do you like the least?</p>
+            <button id="troll">Trolls</button>
+            <button class="button-clicked " id="zombie">Zombies</button>
+            <button id="skeleton">Skeletons</button>
+          </div>
+        </div>
+        <br />
+        <button id="continue">Continue</button>
+      </div>
+
+      <div class="game-element invisible" id="game-header">
+        <h1>
+          <span id="who">Nora</span> <span id="to-do">wants to know</span>
+        </h1>
       </div>
 
       <!-- This is the game starter, it will only show upon loding the page or restarting the screen -->
-      <div class="game-element game-body " id="game-starter">
+      <div class="game-element game-body invisible" id="game-starter">
         <h2>Are the statement's true or false?</h2>
-        <br />
 
         <p>
           You can help... but hurry up and try not to make mistakes... or you
           might have to <br />
-          <br />
           <b> RUN FOR YOUR LIFE</b>
         </p>
-        <br />
+
         <p>Are you ready?</p>
-        <br />
         <button id="start">Let's go!</button>
       </div>
 
@@ -129,6 +148,7 @@
     </div>
 
     <script src="js/triviaGame/questions.js"></script>
+    <script src="js/jumpingGame/playerTypes.js"></script>
     <script src="js/triviaGame/triviaGame.js"></script>
 
     <script src="js/jumpingGame/p5Handler.js"></script>

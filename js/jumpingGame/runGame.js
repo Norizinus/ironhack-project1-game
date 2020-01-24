@@ -19,7 +19,7 @@ class runGame {
       obstacle.setup(p5, canvasHeight, canvasWidth);
     }
     this.font = p5.loadFont("assets/Orbitron-Regular.ttf");
-    console.log("obstacle setup");
+    // console.log("obstacle setup");
   }
 
   draw(p5) {
@@ -38,7 +38,7 @@ class runGame {
       if (p5.frameCount % 60 === 0) {
         this.gameTimer--;
       }
-      if (p5.frameCount % (150 - this.level * 50) === 0) {
+      if (p5.frameCount % (100 - jumpRunGame.level * 10) === 0) {
         this.obstacle.push(new Obstacle());
         this.obstacle[this.obstacle.length - 1].setup(
           p5,
@@ -60,7 +60,7 @@ class runGame {
     if (this.gameTimer === 0) {
       this.obstacle = null;
       p5.fill("rgba(192,192,192,0.3)");
-      console.log(this.width, this.height);
+      // console.log(this.width, this.height);
       p5.rect(0, 0, this.width, this.height);
       p5.fill("black");
       p5.textSize(30);
@@ -76,6 +76,7 @@ class runGame {
       p5.text(this.resetTimer, this.width / 2, this.height / 2 + 100);
 
       if (this.resetTimer === 0) {
+        console.log("reset timer done, calling endJunGame");
         this.prepareNextRound();
         endJumpRun(true);
       }

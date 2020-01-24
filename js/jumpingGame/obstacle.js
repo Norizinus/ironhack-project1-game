@@ -3,13 +3,15 @@ class Obstacle {
     this.counter = 0;
   }
   setup(p5, canvasHeight, canvasWidth) {
-    this.images = [
-      p5.loadImage("././assets/obstacle/character_zombie_run0.png"),
-      p5.loadImage("././assets/obstacle/character_zombie_run1.png"),
-      p5.loadImage("././assets/obstacle/character_zombie_run2.png")
-    ];
+    if (obstacle.toLowerCase() === "zombie") {
+      this.images = getZombie(p5);
+    } else if (obstacle.toLowerCase() === "troll") {
+      this.images = getTroll(p5);
+    } else if (obstacle.toLowerCase() === "skeleton") {
+      this.images = getSkeleton(p5);
+    }
 
-    this.sound = p5.loadSound("../../assets/sounds/obstacle.wav");
+    this.sound = p5.loadSound("././assets/sounds/obstacle.wav");
     this.canvasHeight = canvasHeight;
     this.canvasWidth = canvasWidth;
 
@@ -20,7 +22,7 @@ class Obstacle {
   }
 
   draw(p5) {
-    console.log("Draw Obstacle was called");
+    // console.log("Draw Obstacle was called");
 
     //moves through the images of the obstacle so that it appears moving
     if (p5.frameCount % 8 === 0) {
@@ -40,7 +42,7 @@ class Obstacle {
       this.height,
       this.width
     );
-    this.x -= 3 * jumpRunGame.level;
+    this.x -= 2 * jumpRunGame.level;
   }
 
   collision(player) {

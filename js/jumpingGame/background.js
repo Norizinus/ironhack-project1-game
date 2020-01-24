@@ -60,7 +60,7 @@ class Background {
   }
 
   draw(p5) {
-    console.log("Draw Background Called");
+    // console.log("Draw Background Called");
     for (let img of this.images) {
       this.move(p5, img);
     }

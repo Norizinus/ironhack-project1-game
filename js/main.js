@@ -23,6 +23,14 @@ let jumpgamePlaying = document.getElementById("jump-game-playing");
 let gamePlaying = document.getElementById("game-playing");
 let gameEnd = document.getElementById("game-end");
 let gameStarter = document.getElementById("game-starter");
+let playerButtons = document.querySelectorAll("#player-buttons > button");
+let obstacleButtons = document.querySelectorAll("#obstacle-buttons > button");
+let player = "llama";
+let obstacle = "zombie";
+let continueButton = document.getElementById("continue");
+let playerSelection = document.getElementById("character-selection");
+let gameHeader = document.getElementById("game-header");
+let toDo = document.getElementById("to-do");
 
 let finalScore = document.getElementById("final-score");
 let potentialPoints = document.getElementById("potential-points");
@@ -137,6 +145,7 @@ function runForYourLifeEvaluation(event) {
     jumpgamePlaying.classList.remove("invisible");
     gamePlaying.classList.add("invisible");
     jumpRunStarter.classList.add("invisible");
+    toDo.innerText = "needs to run!";
   } else {
     console.log("You lazy bastard!");
     endQuiz(true);
@@ -146,9 +155,14 @@ function runForYourLifeEvaluation(event) {
 //ends the jump and run game and removes the canvas
 function endJumpRun(result) {
   jumpRunStarter.classList.add("invisible");
-  if (result) {
-    myP5.remove();
+
+  if (result === true) {
     console.log("The adventure continues");
+    console.log("removing p5");
+    console.log(myP5);
+    // console.log(myP5.remove());
+    myP5.remove();
+    toDo.innerText = "wants to know";
     jumpgamePlaying.classList.add("invisible");
     gamePlaying.classList.remove("invisible");
     document.body.classList.remove("jump-run-background");
@@ -172,7 +186,10 @@ function endQuiz(won) {
   document.body.classList.remove("jump-run-background");
 
   if (!won) {
+    // toDo.innerText = "is done!";
     // jumpRunStarter.classList.add("invisible");
+    toDo.innerText = `will become a ${player[0].toUpperCase() +
+      player.slice(1)}-zombie soon!`;
     gamePlaying.classList.add("invisible");
     jumpgamePlaying.classList.add("invisible");
     gameEnd.classList.remove("invisible");
@@ -180,6 +197,8 @@ function endQuiz(won) {
 
     console.log("Meh ¯_(ツ)_/¯");
   } else {
+    toDo.innerText = "is done!";
+
     if (jumpRunGame != null) {
       deathEscapes.innerText = jumpRunGame.level - 1;
     } else {
@@ -202,6 +221,24 @@ function endQuiz(won) {
 //TODO!!!!
 function printGameResults() {}
 
+function setPlayer(event) {
+  console.log("clicked button");
+  playerButtons.forEach(function(button) {
+    button.classList.remove("button-clicked");
+  });
+  event.target.classList.add("button-clicked");
+  player = event.target.getAttribute("id");
+}
+
+function setObstacle(event) {
+  console.log("clicked button");
+  obstacleButtons.forEach(function(button) {
+    button.classList.remove("button-clicked");
+  });
+  event.target.classList.add("button-clicked");
+  obstacle = event.target.getAttribute("id");
+}
+
 //TODO: manage what happens if jump & run is lost
 
 //event management
@@ -213,6 +250,22 @@ yesButton.onclick = runForYourLifeEvaluation;
 noButton.onclick = runForYourLifeEvaluation;
 restartButton.onclick = function() {
   location.reload();
+};
+
+playerButtons.forEach(function(button) {
+  button.onclick = setPlayer;
+});
+
+obstacleButtons.forEach(function(button) {
+  button.onclick = setObstacle;
+});
+
+continueButton.onclick = function() {
+  playerSelection.classList.add("invisible");
+  gameStarter.classList.remove("invisible");
+  document.getElementById("who").innerText =
+    player[0].toUpperCase() + player.slice(1);
+  gameHeader.classList.remove("invisible");
 };
 
 // Questions needs to be displayed and the counter starts the countdown.

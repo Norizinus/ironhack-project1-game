@@ -6,7 +6,15 @@ class Player {
 
   setup(p5, canvasHeight, canvasWidth) {
     this.sound = p5.loadSound("././assets/sounds/player.ogg");
-    this.image = p5.loadImage("././assets/player/llama.gif");
+    console.log(player);
+    if (player.toLowerCase() === "llama") {
+      this.image = getLlama(p5);
+      console.log("called", this.image);
+    } else if (player.toLowerCase() === "dog") {
+      this.image = getDog(p5);
+    } else if (player.toLowerCase() === "unicorn") {
+      this.image = getUnicorn(p5);
+    }
 
     this.canvasHeight = canvasHeight;
     this.canvasWidth = canvasWidth;
